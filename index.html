@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <script>
+
+    var validChars="";
+    var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numbers = "1234567890"
+    var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+
+
+    var pwdQualities = {
+        pwdLength: 0,
+        pwdLower: true,
+        pwdUpper: true,
+        pwdSpec: true,
+        pwdNum: true,
+    }
+
+    function password() {
+
+        var lengthPrompt = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
+
+        if (lengthPrompt > 7 && lengthPrompt < 129) {
+            alert("Your number is " + lengthPrompt);
+            pwdQualities.pwdLength = lengthPrompt;
+        } else if (isNaN(lengthPrompt)) {
+            alert("")
+        }
+        else {
+            alert("Not a valid length.");
+            password();
+        }
+
+        var lowerConfirm = confirm("Do you want lowercase letters?");
+
+        if (lowerConfirm === true) {
+            pwdQualities.pwdLower = true;
+            validChars+=lowerCase;
+        } else {
+            pwdQualities.pwdLower = false;
+        }
+
+        var upperConfirm = confirm("Do you want uppercase letters?");
+
+        if (upperConfirm === true) {
+            pwdQualities.pwdUpper = true;
+            validChars+=upperCase;
+        } else {
+            pwdQualities.pwdUpper = false;
+        }
+
+        var specialConfirm = confirm("Do you want special characters?");
+
+        if (specialConfirm === true) {
+            pwdQualities.pwdSpec = true;
+            validChars+=specChar;
+        } else {
+            pwdQualities.pwdSpec = false;
+        }
+
+        var numConfirm = confirm("Do you want numbers?");
+
+        if (numConfirm === true) {
+            pwdQualities.pwdNum = true;
+            validChars+=numbers;
+        } else {
+            pwdQualities.pwdNum = false;
+        }
+
+        if (pwdQualities.pwdLower === false && pwdQualities.pwdUpper === false && pwdQualities.pwdSpec === false && pwdQualities.pwdNum === false) {
+            alert("You must have one character type in your password!");
+            password();
+        }
+    }
+
+
+    password();
+    console.log(pwdQualities.pwdLength);
+    console.log(pwdQualities.pwdLower);
+    console.log(pwdQualities.pwdUpper);
+    console.log(pwdQualities.pwdSpec);
+    console.log(pwdQualities.pwdNum);
+    console.log(validChars);
+
+
+
+    // var lowerConfirm = confirm("Do you want lowercase letters?"); 
+    // if (lowerConfirm=true) {
+    //     pwdLower = true;
+    // } else {
+    //     pwdLower = false;
+    // }
+    // var upperConfirm = confirm("Do you want uppcase characters?");
+    // upperConfirm = pwdUpper;
+
+    // for (var i=0; i < specialChar.length; i++) {
+    //     console.log(specialChar[i])
+    // }
+
+    // console.log(specialChar.charAt(0));
+
+    // var special = confirm("Do you want special characters?")
+    // var numeric = confirm("Do you want numeric chartacters?")
+    // var lowerCase = confirm("Do you want lowercase letters?")
+    // var upperCase = confirm("Do you want uppcase characters?")
+
+    // if (length < 8 || length > 128) {
+    //     alert("Add a number between 8 and 128");
+    //     askLength();
+    // }
+
+    </script>
+
+</body>
+
+</html>
