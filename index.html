@@ -10,8 +10,9 @@
     var validChars="";
     var lowerCase = "abcdefghijklmnopqrstuvwxyz";
     var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var numbers = "1234567890"
-    var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+    var numbers = "1234567890";
+    var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+    var finalPassword = "";
 
 
     var pwdQualities = {
@@ -30,7 +31,8 @@
             alert("Your number is " + lengthPrompt);
             pwdQualities.pwdLength = lengthPrompt;
         } else if (isNaN(lengthPrompt)) {
-            alert("")
+            alert("This is not a number.");
+            password();
         }
         else {
             alert("Not a valid length.");
@@ -77,6 +79,10 @@
             alert("You must have one character type in your password!");
             password();
         }
+        for (var i=0; i < pwdQualities.pwdLength; i++) {
+            var getChar = validChars[Math.floor(Math.random() * validChars.length)];
+            finalPassword += getChar;
+        }
     }
 
 
@@ -87,6 +93,7 @@
     console.log(pwdQualities.pwdSpec);
     console.log(pwdQualities.pwdNum);
     console.log(validChars);
+    console.log(finalPassword);
 
 
 
