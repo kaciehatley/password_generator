@@ -1,0 +1,35 @@
+body {
+    background-color: lightgray;
+}
+.textBox {
+    height: 150px;
+    border: 3px dashed darkgray;
+}
+
+button {
+    margin: 20px 0;
+
+}
+
+h1{
+    margin: 40px 0;
+}
+
+h2 {
+    margin: 20px;
+}
+
+#whiteBox{
+    padding: 30px;
+}
+
+.container-border {
+    border-top: 3px lightgray solid;
+    border-bottom: 3px lightgray solid;
+    padding: 20px 0px;
+}
+
+#pwBox {
+    padding-top: 10px;
+    font-size: 25px;
+}
